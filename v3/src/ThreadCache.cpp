@@ -20,14 +20,12 @@ void* ThreadCache::allocate(size_t size)
 
     size_t index = SizeClass::getIndex(size);
 
-    // 更新自由链表大小
-    freeListSize_[index]--;
-
     // 检查线程本地自由链表
     // 如果 freeList_[index] 不为空，表示该链表中有可用内存块
     if (void* ptr = freeList_[index])
     {
         freeList_[index] = *reinterpret_cast<void**>(ptr); // 将freeList_[index]指向的内存块的下一个内存块地址（取决于内存块的实现）
+        freeListSize_[index]--; // 只有真正从链表摘块时才更新计数
         return ptr;
     }
 
