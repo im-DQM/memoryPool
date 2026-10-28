@@ -98,11 +98,6 @@ g++ -std=c++17 -O2 -Iinclude src/*.cpp tests/PerformanceTest.cpp -o perf_test -p
 | `testEdgeCases` | 0 字节、1 字节、`MAX_BYTES`、`MAX_BYTES + 1` |
 | `testStress` | 10000 次随机大小分配，随机顺序释放 |
 
-## 关于实现来源
-
-本仓库的分层实现参考卡码网（程序员 Carl）内存池课程的三版示例，命名空间 `Kama_memoryPool` 与课程材料保持一致便于对照；
-三个版本的整理、在本机的编译运行、测试用例执行与性能数据记录由我完成。原课程宣传性说明已不适用于本仓库，故替换为本文件。
-
 ## 还可以继续做
 
 - 加 `-fsanitize=address` 的 Debug 构建配置，把越界与悬垂指针扫一遍；
