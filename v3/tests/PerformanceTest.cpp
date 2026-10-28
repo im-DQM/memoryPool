@@ -221,7 +221,7 @@ public:
     // 4. 混合大小测试
     static void testMixedSizes() 
     {
-        constexpr size_t NUM_ALLOCS = 50000;
+        constexpr size_t NUM_ALLOCS = 100000;
         const size_t SIZES[] = {16, 32, 64, 128, 256, 512, 1024, 2048};
         
         std::cout << "\nTesting mixed size allocations (" << NUM_ALLOCS 
